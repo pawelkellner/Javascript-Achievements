@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="moneyHave">Money: 100</p>
+    <p id="timeLeft">Time: 0</p>
+    <button id="pay">Pay 5!</button>
+    <img id="gordijn" src="gordijn.jpg" alt="">
+    <script>
+        let money = 100;
+        let time = 0;
+        let button = document.getElementById('pay');
+        button.addEventListener('click', ()=>{start()});
+        function start()
+        {
+            if (money == 0) 
+            {
+            document.getElementById('moneyHave').innerHTML = 0
+            }
+            else
+            {
+                money -= 5;
+                time += 5000;
+            }
+
+            let moneyTotal = document.getElementById('moneyHave');
+            moneyTotal.innerHTML = "Money: " + money;
+
+        }
+        function checktime()
+        {
+            let image = document.getElementById('gordijn');
+            if(time > 0){
+            time -= 100;
+            image.src="monke.jpg"; 
+            }else{ 
+                image.src="gordijn.jpg"
+                time = 0
+            }
+            let timeTotal = document.getElementById('timeLeft');
+            timeTotal.innerHTML = "Time: " + time;
+        }
+        setInterval(checktime, 100);
+    </script>
+</body>
+</html>
